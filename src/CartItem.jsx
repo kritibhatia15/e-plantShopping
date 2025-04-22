@@ -54,10 +54,12 @@ const CartPage = () => {
   // Calculate the total cost of all items in the cart
   const calculateTotalAmount = () => {
     let total = 0;
-    cartItems.forEach((item) => {
-      total += calculateTotalCost(item);
+    cartItems.forEach(item => {
+      // Extract cost from item and convert it to a number (strip the "$" symbol)
+      const itemCost = parseFloat(item.cost.substring(1)); // "$10.00" -> 10.00
+      total += itemCost * item.quantity; // Add cost * quantity to the total
     });
-    return total.toFixed(2); // Return total as a string with 2 decimals
+    return total.toFixed(2); // Return the total as a string, formatted to 2 decimal places
   };
 
   // Continue shopping button handler
