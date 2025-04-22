@@ -69,6 +69,22 @@ const CartPage = () => {
     alert('Redirecting to the plant listing page...');
   };
 
+  const buttonStyle = {
+    fontSize: '23px',
+    backgroundColor: 'rgb(76, 175, 80)',
+    color: 'rgb(255, 255, 255)',
+    cursor: 'pointer',
+    marginTop: '40px',
+    marginLeft: '20px',
+    padding: '15px 25px',
+    borderWidth: 'initial',
+    borderStyle: 'none',
+    borderColor: 'initial',
+    borderImage: 'initial',
+    borderRadius: '5px',
+    transition: 'background-color 0.3s',
+  };
+
   return (
     <div className="cart-page">
       <h2>Your Cart</h2>
@@ -82,8 +98,10 @@ const CartPage = () => {
       <div className="cart-total">
         <h3>Total Cost: ${calculateTotalAmount()}</h3>
       </div>
-      <button onClick={handleContinueShopping}>Continue Shopping</button>
-      <button onClick={() => alert('Checkout functionality will be added soon.')}>Checkout</button>
+      <div className="cartButton">
+      <button style={buttonStyle} onClick={handleContinueShopping}>Continue Shopping</button>
+      <button style={buttonStyle} onClick={() => alert('Checkout functionality will be added soon.')}>Checkout</button>
+    </div>
     </div>
   );
 };
